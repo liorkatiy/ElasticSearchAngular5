@@ -1,0 +1,27 @@
+<form>
+  <input placeholder="First Name" [(ngModel)]="newUser.FirstName" name="first" />
+  <input placeholder="Last Name" [(ngModel)]="newUser.LastName" name="last" />
+  <input type="number" placeholder="Age" [(ngModel)]="newUser.Age" name="age" />
+  <input placeholder="ID" [(ngModel)]="newUser.IdCard" name="idcard" />
+  <input placeholder="Email" [(ngModel)]="newUser.Email" name="email" />
+  <input type="submit" (click)="add()" />
+</form>
+
+<input placeholder="Search" #searchValue/>
+<input type="button" value="search" (click)="search(searchValue.value)" />
+
+<div *ngFor="let customer of customers">
+  <p> FirstName:
+    <input [(ngModel)]="customer.FirstName" /> </p>
+  <p>LastName:
+    <input [(ngModel)]="customer.LastName" />{{customer.LastName}}</p>
+  <p>Age:
+    <input [(ngModel)]="customer.Age" />{{customer.Age}} </p>
+  <p>ID:
+    <input [(ngModel)]="customer.IdCard" />{{customer.IdCard}}</p>
+  <p>Email:
+    <input [(ngModel)]="customer.Email" />
+  </p>
+  <input type="button" value="Delete" (click)="delete(customer.Id)" />
+  <input type="button" value="Update" (click)="update(customer)" />
+</div>
